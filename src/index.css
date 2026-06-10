@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Remove default button styles */
+button {
+  cursor: pointer;
+}
+
+/* Hero entrance animations */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: heroFadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-animate-delay-1 {
+  animation: heroFadeUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-animate-delay-2 {
+  animation: heroFadeUp 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.hero-animate-delay-3 {
+  animation: heroFadeUp 0.8s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.hero-animate-delay-4 {
+  animation: heroFadeUp 0.8s ease forwards;
+  animation-delay: 1.0s;
+}
+
+/* Transition durations */
+.duration-400 {
+  transition-duration: 400ms;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1b2a4a;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(255, 122, 0, 0.2);
+  color: #1b2a4a;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Focus ring for accessibility */
+*:focus-visible {
+  outline: 2px solid #FF7A00;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
