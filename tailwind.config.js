@@ -20,9 +20,9 @@ export default {
           light: '#8898AA',
         },
         tangerine: {
-          DEFAULT: '#C4832A',
-          dark: '#A86820',
-          light: '#D9A050',
+          DEFAULT: '#B87333',
+          dark: '#9A5E24',
+          light: '#CC8F55',
         },
         charcoal: '#334155',
       },
