@@ -46,6 +46,7 @@ export default function Navbar() {
             src="/Black_Swan_1.png"
             alt="Black Swan Insurance Brokers"
             className="h-11 w-auto"
+            style={{ mixBlendMode: 'multiply' }}
           />
         </a>
 
