@@ -87,7 +87,7 @@ export default function Services() {
         >
           <div>
             <h3 className="font-display text-2xl font-bold text-white mb-2">
-              Not sure what you need?
+              Not sure where to start?
             </h3>
             <p className="text-white/65 max-w-lg">
               Our advisors will assess your full risk profile — personal and business — and recommend
