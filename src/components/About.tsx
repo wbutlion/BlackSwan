@@ -143,7 +143,7 @@ export default function About() {
             </p>
             <div className="space-y-3">
               {[
-                'Fully registered and regulated broker',
+                'Registered broker and financial service provider (FSP 8231)',
                 'Access to all major South African insurers',
                 'Personalised risk assessment included',
                 'Proactive annual policy reviews',
