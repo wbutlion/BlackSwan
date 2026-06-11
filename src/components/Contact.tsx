@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Mail, MapPin, Linkedin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Phone, Send, CheckCircle2 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Contact() {
@@ -60,6 +60,7 @@ export default function Contact() {
               </p>
 
               <div className="space-y-6">
+                <ContactDetail icon={Phone} label="Phone" value="+27 21 701 9989" href="tel:+27217019989" />
                 <ContactDetail icon={Mail} label="Email" value="hello@blackswaninsurance.co.za" href="mailto:hello@blackswaninsurance.co.za" />
                 <ContactDetail icon={Linkedin} label="LinkedIn" value="blackswaninsurance" href="https://www.linkedin.com/company/blackswaninsurance" />
                 <ContactDetail icon={MapPin} label="Location" value="Westlake Business Park, Cape Town, South Africa" />
