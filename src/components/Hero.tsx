@@ -9,7 +9,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: '#060F22' }}
+      style={{ background: '#1f2028' }}
     >
       {/* Soft radial glow behind content */}
       <div className="absolute inset-0 pointer-events-none" />

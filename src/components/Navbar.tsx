@@ -29,8 +29,8 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: '#FEF9F5',
-        boxShadow: scrolled ? '0 2px 12px rgba(15,35,71,0.10)' : 'none',
+        backgroundColor: '#f7f8fa',
+        boxShadow: scrolled ? '0 2px 12px rgba(31,32,40,0.10)' : 'none',
         paddingTop: scrolled ? '8px' : '12px',
         paddingBottom: scrolled ? '8px' : '12px',
       }}
@@ -43,10 +43,10 @@ export default function Navbar() {
           className="flex items-center group"
         >
           <img
-            src="/Black_Swan_1.png"
+            src="/Black_Swan_Logo.jpg"
             alt="Black Swan Insurance Brokers"
             className="h-11 w-auto"
-            style={{ mixBlendMode: 'multiply' }}
+            style={{ mixBlendMode: 'multiply', backgroundColor: '#f7f8fa' }}
           />
         </a>
 
@@ -79,7 +79,7 @@ export default function Navbar() {
           mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <nav className="bg-cream border-t border-navy/10 px-6 py-4 flex flex-col gap-1">
+        <nav className="border-t border-navy/10 px-6 py-4 flex flex-col gap-1" style={{ backgroundColor: '#f7f8fa' }}>
           {links.map((l) => (
             <button
               key={l.href}

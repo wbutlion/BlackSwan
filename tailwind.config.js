@@ -6,7 +6,7 @@ export default {
       colors: {
         navy: {
           DEFAULT: '#0A1C3B',
-          dark: '#060F22',
+          dark: '#1f2028',
           light: '#142D52',
           50: '#EDF1F8',
           100: '#D3DCED',
@@ -20,9 +20,9 @@ export default {
           light: '#8898AA',
         },
         tangerine: {
-          DEFAULT: '#B5541E',
-          dark: '#923F14',
-          light: '#C9713E',
+          DEFAULT: '#dac37f',
+          dark: '#c4a95f',
+          light: '#e8d49f',
         },
         charcoal: '#334155',
       },
