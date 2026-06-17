@@ -22,8 +22,8 @@ export default function Footer() {
             <img
               src="/Black_Swan_Logo.jpg"
               alt="Black Swan Insurance Brokers"
-              className="h-11 w-auto"
-              style={{ filter: 'invert(1) sepia(0.3) saturate(1.4) hue-rotate(5deg) brightness(0.92)' }}
+              className="h-11 w-auto rounded"
+              style={{ backgroundColor: '#f7f8fa', mixBlendMode: 'luminosity' }}
             />
           </div>
 
