@@ -12,7 +12,7 @@ export default {
           100: '#D3DCED',
         },
         cream: {
-          DEFAULT: '#FEF9F5',
+          DEFAULT: '#f7f8fa',
           dark: '#FDF0E6',
         },
         slate: {
