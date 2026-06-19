@@ -1,25 +1,45 @@
 import { useState, type FormEvent } from 'react';
-import { Mail, MapPin, Linkedin, Phone, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
 
 export default function Contact() {
   const { ref, isVisible } = useScrollAnimation();
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission
-    setTimeout(() => {
-      setLoading(false);
+    setError(null);
+
+    try {
+      const res = await fetch(FUNCTION_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        throw new Error('Submission failed. Please try again.');
+      }
+
       setSubmitted(true);
-    }, 1200);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,7 +81,7 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <ContactDetail icon={Phone} label="Phone" value="+27 21 701 9989" href="tel:+27217019989" />
-                <ContactDetail icon={Mail} label="Email" value="hello@blackswaninsurance.co.za" href="mailto:hello@blackswaninsurance.co.za" />
+                <ContactDetail icon={Mail} label="Email" value="info@blackswaninsurance.co.za" href="mailto:info@blackswaninsurance.co.za" />
                 <ContactDetail icon={Linkedin} label="LinkedIn" value="blackswaninsurance" href="https://www.linkedin.com/company/blackswaninsurance" />
                 <ContactDetail icon={MapPin} label="Location" value="Westlake Business Park, Cape Town, South Africa" />
               </div>
@@ -140,6 +160,13 @@ export default function Contact() {
                     className="w-full px-4 py-3 rounded-xl border border-slate/20 focus:border-tangerine focus:ring-2 focus:ring-tangerine/15 outline-none text-charcoal placeholder-slate/50 text-sm transition-all duration-200 resize-none"
                   />
                 </div>
+
+                {error && (
+                  <div className="flex items-center gap-2 text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    {error}
+                  </div>
+                )}
 
                 <button
                   type="submit"
