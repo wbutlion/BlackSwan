@@ -9,14 +9,10 @@ CREATE TABLE contact_submissions (
 
 ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
 
+-- Allow anonymous users to submit the contact form (no identity to restrict further)
 CREATE POLICY "insert_contact_submissions" ON contact_submissions FOR INSERT
   TO anon WITH CHECK (true);
 
+-- Allow authenticated admins to read all submissions
 CREATE POLICY "select_contact_submissions" ON contact_submissions FOR SELECT
-  TO authenticated USING (true);
-
-CREATE POLICY "update_contact_submissions" ON contact_submissions FOR UPDATE
-  TO authenticated USING (true) WITH CHECK (true);
-
-CREATE POLICY "delete_contact_submissions" ON contact_submissions FOR DELETE
   TO authenticated USING (true);
