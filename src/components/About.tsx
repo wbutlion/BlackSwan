@@ -139,7 +139,7 @@ export default function About() {
             <p className="text-charcoal/70 leading-relaxed mb-8">
               What began as a single-broker practice has grown organically into one of South Africa's oldest
               and largest independent brokerage firm, yet its founding commitment to tailored advice and
-              genuinely personalized service has never wavered.
+              genuinely personalised service has never wavered.
             </p>
             <div className="space-y-3">
               {[

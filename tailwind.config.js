@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         navy: {
-          DEFAULT: '#0A1C3B',
-          dark: '#1f2028',
-          light: '#142D52',
-          50: '#EDF1F8',
-          100: '#D3DCED',
+          DEFAULT: '#1f2028',
+          dark: '#141418',
+          light: '#2a2b35',
+          50: '#f0f0f2',
+          100: '#d5d5da',
         },
         cream: {
           DEFAULT: '#f7f8fa',
