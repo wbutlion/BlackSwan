@@ -20,10 +20,9 @@ export default function Footer() {
           {/* Brand column */}
           <div>
             <img
-              src="/Black_Swan_Logo.jpg"
+              src="/Black_Swan_Insurance_Brokers_Logo_reversed.svg"
               alt="Black Swan Insurance Brokers"
-              className="h-11 w-auto rounded"
-              style={{ backgroundColor: '#f7f8fa', mixBlendMode: 'luminosity' }}
+              className="h-11 w-auto"
             />
           </div>
 

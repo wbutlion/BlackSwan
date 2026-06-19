@@ -43,10 +43,9 @@ export default function Navbar() {
           className="flex items-center group"
         >
           <img
-            src="/Black_Swan_Logo.jpg"
+            src="/Black_Swan_Insurance_Brokers_Logo.svg"
             alt="Black Swan Insurance Brokers"
             className="h-11 w-auto"
-            style={{ mixBlendMode: 'multiply', backgroundColor: '#f7f8fa' }}
           />
         </a>
 
