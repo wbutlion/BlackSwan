@@ -43,7 +43,7 @@ export default function Hero() {
           <div className="hero-animate-delay-3 opacity-0 flex flex-col sm:flex-row justify-center gap-4">
             <button
               onClick={scrollToContact}
-              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-tangerine hover:bg-tangerine-dark text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-2xl hover:shadow-tangerine/40 hover:-translate-y-0.5 text-base"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-tangerine hover:bg-tangerine-dark text-navy font-semibold rounded-xl transition-all duration-200 hover:shadow-2xl hover:shadow-tangerine/40 hover:-translate-y-0.5 text-base"
             >
               Book a Consultation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

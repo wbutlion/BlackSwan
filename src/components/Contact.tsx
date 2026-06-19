@@ -171,7 +171,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-tangerine hover:bg-tangerine-dark disabled:opacity-70 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-tangerine/30 hover:-translate-y-0.5 text-base"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-tangerine hover:bg-tangerine-dark disabled:opacity-70 text-navy font-semibold rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-tangerine/30 hover:-translate-y-0.5 text-base"
                 >
                   {loading ? (
                     <>
