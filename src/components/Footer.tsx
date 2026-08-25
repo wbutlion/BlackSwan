@@ -1,3 +1,4 @@
+import { policyFooterLinks } from '../data/policies';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -10,6 +11,11 @@ const navLinks = [
 export default function Footer() {
   const scrollTo = (href: string) => {
     document.querySelector(href)?.scrollIntoView();
+  };
+
+  const goHome = () => {
+    window.location.hash = '';
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -44,15 +50,25 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/35 text-xs">
             &copy; {new Date().getFullYear()} Black Swan Insurance Brokers. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
-            <button className="text-white/35 hover:text-white/60 text-xs transition-colors duration-200">Privacy Policy</button>
-            <button className="text-white/35 hover:text-white/60 text-xs transition-colors duration-200">Terms of Service</button>
-            <button className="text-white/35 hover:text-white/60 text-xs transition-colors duration-200">FAIS Disclosure</button>
-          </div>
+          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+            {policyFooterLinks.map((link, idx) => (
+              <li key={link.slug} className="flex items-center gap-x-3">
+                <a
+                  href={`#/${link.slug}`}
+                  className="text-white/35 hover:text-white/70 text-xs transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+                {idx < policyFooterLinks.length - 1 && (
+                  <span className="text-white/20 text-xs select-none" aria-hidden="true">|</span>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>
