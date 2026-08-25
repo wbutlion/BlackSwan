@@ -144,6 +144,8 @@ export const policies: Policy[] = [
     title: 'Conflict of Interest Policy',
     subtitle: 'How we identify, manage, and disclose conflicts of interest',
     lastUpdated: 'August 2026',
+    documentUrl: '/CONFLICT_OF_INTEREST_MANAGEMENT_POLICY.docx',
+    documentLabel: 'Conflict of Interest Management Policy',
     intro:
       'This Conflict of Interest Policy describes how Black Swan Insurance Brokers identifies, manages, and discloses actual or potential conflicts of interest in accordance with the General Code of Conduct under the FAIS Act.',
     sections: [
@@ -180,6 +182,8 @@ export const policies: Policy[] = [
     title: 'Complaints Procedure',
     subtitle: 'How to raise a complaint and how we resolve it',
     lastUpdated: 'August 2026',
+    documentUrl: '/TREATING_CUSTOMERS_FAIRLY_&_COMPLAINTS_PROCEDURE.docx',
+    documentLabel: 'Treating Customers Fairly & Complaints Procedure',
     intro:
       'Black Swan Insurance Brokers is committed to resolving complaints fairly, promptly, and transparently. This procedure sets out how to lodge a complaint and how we will handle it.',
     sections: [
