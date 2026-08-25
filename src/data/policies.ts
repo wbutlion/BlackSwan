@@ -8,7 +8,7 @@ export type Policy = {
   title: string;
   subtitle: string;
   lastUpdated: string;
-  intro: string;
+  intro?: string;
   sections: PolicySection[];
   documentUrl?: string;
   documentLabel?: string;
@@ -17,35 +17,83 @@ export type Policy = {
 export const policies: Policy[] = [
   {
     slug: 'statutory-disclosure',
-    title: 'Statutory Disclosure',
-    subtitle: 'Regulatory information as required by the Financial Advisory and Intermediary Services Act (FAIS)',
+    title: 'Statutory Disclosure Notice',
+    subtitle: 'Mandatory Disclosure in terms of the Financial Advisory and Intermediary Services (FAIS) General Code of Conduct',
     lastUpdated: 'August 2026',
     documentUrl: '/Statutory_Disclosure_Notice.docx',
     documentLabel: 'Statutory Disclosure Notice',
-    intro:
-      'Black Swan Insurance Brokers is a registered financial services provider. In accordance with the Financial Advisory and Intermediary Services Act (Act 37 of 2002), we are required to provide clients with the following statutory disclosure.',
     sections: [
       {
-        heading: 'Company Details',
+        heading: '1. FSP License Status and Profile',
         body: [
-          'Black Swan Insurance Brokers (Pty) Ltd is a juristic representative authorised to render financial services in terms of the FAIS Act.',
-          'Company registration number: [To be supplied]',
-          'FSP number: [To be supplied]',
-          'Registered address: Unit F1, Westlake Square, Westlake Drive, Westlake, 7945, South Africa.',
+          'The Dennis Butlion Organisation CC, trading as Black Swan Insurance Brokers, is an authorised Financial Services Provider, registered under FSP License Number 8231.',
+          'A copy of our license certificate is available for inspection at our office or upon request via email.',
+          'Physical Address: Unit F1, Westlake Square, Westlake Drive, Westlake, 7945',
+          'Postal Address: PO Box 570, Constantia, 7848',
+          'Telephone Number: 021 701 9989',
+          'Email Address: info@blackswaninsurance.co.za',
+          'Website: https://blackswaninsurance.co.za',
         ],
       },
       {
-        heading: 'Services Rendered',
+        heading: '2. Authorised Financial Product Categories',
         body: [
-          'We are authorised to render financial advisory and intermediary services in respect of short-term insurance products and long-term insurance products as categorised under the FAIS Act.',
-          'Our services include needs analysis, product recommendation, placement of cover with insurers, ongoing review of cover, and assistance with claims.',
+          'The FSP is licensed and authorised by the Financial Sector Conduct Authority (FSCA) to render financial advisory and intermediary services in respect of the following lines of business:',
+          'Category I - Short-Term Insurance: Commercial Lines: Commercial Lines Short-Term Insurance (e.g., Business Assets, Liability, Fleet, and Engineering risk management).',
+          'Category I - Short-Term Insurance: Personal Lines: Personal Lines Short-Term Insurance (e.g., Personal Motor, Homeowners, Householders, and All Risks protection).',
+          'Category I - Long-Term Insurance: Subcategory B1 and/or B2: Long-Term Insurance (e.g., Life Assurance, Risk Protection, Disability Cover, Severe Illness, and Funeral Cover).',
+          'Category I - Health Service Benefits: Medical Schemes and Health Intermediary Services (e.g., Corporate and Individual Medical Aid, Gap Cover, and Primary Health plans).',
+          'Our authorised Key Individuals (KIs) and Representatives are duly registered and meet the fit and proper requirements, including qualifications, experience, and regulatory exams prescribed by the FAIS Act.',
         ],
       },
       {
-        heading: 'Professional Indemnity and Compliance',
+        heading: '3. Intermediary Status and Independence',
         body: [
-          'We carry professional indemnity cover as required by the FAIS Act and comply with the General Code of Conduct for Authorised Financial Services Providers and Representatives.',
-          'We are subject to the jurisdiction of the Financial Sector Conduct Authority (FSCA) and the Ombud for Financial Services Providers (FAIS Ombud).',
+          'We operate strictly as an independent brokerage, offering solutions from multiple licensed insurers. This ensures that our advice remains objective and tailored directly to your risk profile. For total transparency, we confirm the following structural matters:',
+          'No Shareholding: We do not hold, directly or indirectly, more than 10% of the shares or voting rights in any insurance product supplier or insurer.',
+          'Remuneration Diversification: We do not receive more than 30% of our total brokerage remuneration from any single insurance product supplier or insurer over any given 12-month cycle.',
+          'Professional Indemnity Cover: We maintain comprehensive Professional Indemnity (PI) Insurance cover and Fidelity Guarantee insurance, providing protection against administrative error or financial omissions as mandated under the FAIS Act.',
+        ],
+      },
+      {
+        heading: '4. Professional Fees and Remuneration',
+        body: [
+          'As an independent intermediary, we are compensated through statutory commission paid by product suppliers (insurers) which is built into your premium layout, and/or via professional binder or broker fees where explicitly agreed upon.',
+          'Any non-statutory broker fees, admin fees, or advisory fees will always be disclosed upfront, itemised on your quotation, and require your explicit, written consent prior to deduction.',
+        ],
+      },
+      {
+        heading: '5. Conflict of Interest Management',
+        body: [
+          'We maintain a comprehensive Conflict of Interest Management Policy in strict compliance with the FAIS General Code of Conduct. Our staff are prohibited from accepting financial incentives, non-cash considerations, or soft-brokerage perks that compromise our duty to clients.',
+          'A full copy of our Conflict of Interest Management Policy is available directly on our website or upon request from our compliance office.',
+        ],
+      },
+      {
+        heading: '6. Complaints Procedure and Dispute Resolution',
+        body: [
+          'We are committed to the principle of Treating Customers Fairly (TCF). Should you feel dissatisfied with our advisory or intermediary services, you may lodge a formal complaint following our standard procedure:',
+          'Please submit your complaint in writing to our internal resolution department at complaints@blackswaninsurance.co.za.',
+          'We will acknowledge receipt of your complaint within 3 working days and provide an estimated resolution timeframe.',
+          'If the matter requires deeper investigation, we aim to provide a final substantive response within 21 working days. If we cannot resolve the dispute internally within 6 weeks, or if you remain dissatisfied with our outcome, you have the right to escalate the matter to the relevant Ombud within 6 months.',
+        ],
+      },
+      {
+        heading: '7. Statutory Ombud Office Details',
+        body: [
+          'For short-term, long-term, and medical aid administrative disputes:',
+          'Ombud Name: National Financial Ombudsman Scheme South Africa (NFO)',
+          'Physical Address: 110 Oxford Road, Rosebank, Johannesburg, 2196',
+          'Sharecall Telephone: 0860 800 900',
+          'Email Contact: info@nfosa.co.za',
+          'Website: www.nfosa.co.za',
+          'For disputes specifically involving the advice provided by our FSP, or the financial planning process:',
+          'Ombud Name: Office of the FAIS Ombud',
+          'Physical Address: Menlyn Central Office Building, 125 Fiddlewood Street, Menlyn, Pretoria, 0081',
+          'Postal Address: P.O. Box 41, Menlyn Park, 0063',
+          'Telephone Number: +27 12 762 5000 / +27 86 066 3284',
+          'Email Contact: info@faisombud.co.za',
+          'Website: www.faisombud.co.za',
         ],
       },
     ],
@@ -53,47 +101,60 @@ export const policies: Policy[] = [
   {
     slug: 'privacy-policy',
     title: 'Privacy Policy',
-    subtitle: 'How we collect, use, and protect your personal information',
+    subtitle: 'How we collect, use, store, and safeguard your personal information',
     lastUpdated: 'August 2026',
     documentUrl: '/PRIVACY_POLICY.docx',
     documentLabel: 'Privacy Policy',
-    intro:
-      'This Privacy Policy explains how Black Swan Insurance Brokers collects, processes, and safeguards your personal information in compliance with the Protection of Personal Information Act (POPIA) and the General Data Protection Regulation (GDPR) where applicable.',
     sections: [
+      {
+        heading: 'Introduction',
+        body: [
+          "Black Swan Insurance Brokers ('we', 'us', 'our') respects your privacy and is fully committed to protecting your personal information in strict accordance with the Protection of Personal Information Act, No. 4 of 2013 ('POPIA'). This Privacy Policy describes how we collect, use, store, and safeguard your personal data when you visit our website, utilise our insurance brokerage services, or interact with us.",
+        ],
+      },
       {
         heading: 'Information We Collect',
         body: [
-          'Personal information you provide directly: name, contact details, identity number, and information relevant to the insurance products you enquire about.',
-          'Information collected automatically: IP address, browser type, and usage data when you visit our website.',
+          'To provide effective financial and insurance brokerage services, we collect and process personal information which may include:',
+          'Identity Data: Name, identity number or passport number, date of birth, gender, and marital status.',
+          'Contact Data: Email address, physical address, postal address, and phone numbers.',
+          'Financial Data: Bank account details, financial statements, and premium collection preferences.',
+          'Underwriting & Risk Data: Risk details, claims histories, medical history (for life or health policies), asset valuations, and employment details.',
+          'Technical & Usage Data: IP addresses, browser type, and tracking information collected via website cookies.',
         ],
       },
       {
-        heading: 'How We Use Your Information',
+        heading: 'Purpose of Processing Personal Information',
         body: [
-          'To provide insurance advisory and intermediary services, including obtaining quotations and placing cover.',
-          'To communicate with you about your policy, claims, and related matters.',
-          'To comply with legal and regulatory obligations.',
+          'We will only use your personal information for lawful business purposes related to your insurance profile, including:',
+          'Performing a financial needs analysis and sourcing quotes from registered product suppliers.',
+          'Administering your insurance policies, managing renewals, and facilitating the processing of insurance claims.',
+          'Verifying your identity and conducting mandatory anti-money laundering and counter-terrorist financing checks under FICA.',
+          'Responding to your enquiries, handling customer support requests, and managing complaints.',
         ],
       },
       {
-        heading: 'Sharing of Information',
+        heading: 'Disclosure of Personal Information to Third Parties',
         body: [
-          'We may share your personal information with insurers, reinsurers, and other third parties necessary to provide the services you have requested.',
-          'We do not sell your personal information to third parties.',
+          'We may share your personal data with third parties strictly to fulfill our services to you or comply with statutory mandates. These include:',
+          'Registered Short-term and Long-term Insurers (Product Suppliers) required to underwrite risks and issue policies.',
+          'Regulatory bodies, law enforcement agencies, or the Ombud offices where mandated by South African law.',
+          'Authorised operators, such as IT hosting providers, cloud storage systems, or compliance consultants operating under strict confidentiality mandates.',
         ],
       },
       {
-        heading: 'Data Security',
+        heading: 'Information Security',
         body: [
-          'We implement appropriate technical and organisational measures to protect your personal information against unauthorised access, loss, or destruction.',
-          'Access to personal information is restricted to authorised personnel who require it to perform their duties.',
+          'We implement robust technical and organisational security measures to protect your personal information from unauthorised access, loss, misuse, or alteration. These measures include secure firewalls, data encryption protocols, restricted access control systems, and routine employee compliance training. In the event of a confirmed data breach, we will notify the Information Regulator and impacted data subjects as required by POPIA.',
         ],
       },
       {
-        heading: 'Your Rights',
+        heading: 'Your Data Subject Rights',
         body: [
-          'You have the right to access, correct, or request deletion of your personal information, subject to legal and regulatory retention requirements.',
-          'To exercise these rights, contact us using the details on our Contact page.',
+          'Under POPIA, you possess the right to:',
+          'Request confirmation of whether we hold your personal information and obtain a description of that data.',
+          'Request the correction, destruction, or deletion of inaccurate, irrelevant, or outdated information.',
+          'Object to the processing of your personal info at any time for direct marketing purposes.',
         ],
       },
     ],
@@ -101,118 +162,163 @@ export const policies: Policy[] = [
   {
     slug: 'paia-manual',
     title: 'PAIA Manual',
-    subtitle: 'Promotion of Access to Information Act (Act 2 of 2000) — Section 51 Manual',
+    subtitle: "Prepared in terms of Section 51 of the Promotion of Access to Information Act, No. 2 of 2000 ('PAIA') and incorporating the requirements of the Protection of Personal Information Act, No. 4 of 2013 ('POPIA')",
     lastUpdated: 'August 2026',
     documentUrl: '/PAIA_MANUAL.docx',
     documentLabel: 'PAIA Manual',
-    intro:
-      'This manual is published in accordance with Section 51 of the Promotion of Access to Information Act (PAIA), Act 2 of 2000, and sets out how to request access to records held by Black Swan Insurance Brokers.',
     sections: [
       {
-        heading: 'Purpose of the Manual',
+        heading: 'Introduction and Purpose',
         body: [
-          'The manual informs requesters of the procedure to be followed when requesting access to records held by Black Swan Insurance Brokers, the categories of records available, and the grounds on which access may be refused.',
+          "This manual exists to ensure that Black Swan Insurance Brokers complies with the South African Constitution's right to access to information held by private bodies, where such information is required for the exercise or protection of any rights. It outlines the types of records held by the FSP and the procedure required for data subjects to request access to these records.",
         ],
       },
       {
-        heading: 'Information Officer',
+        heading: 'Company and Contact Details',
         body: [
-          'Requests for access to information must be directed to the Information Officer.',
-          'Information Officer: [To be supplied]',
-          'Email: info@blackswaninsurance.co.za',
-          'Address: Unit F1, Westlake Square, Westlake Drive, Westlake, 7945, South Africa.',
+          'Registered Name: The Dennis Butlion Organisation CC trading as Black Swan Insurance Brokers',
+          'FSP Registration Number: 8231',
+          'Physical Address: Unit F1, Westlake Square, Westlake Drive, Westlake, 7945',
+          'Postal Address: PO Box 570, Constantia, 7848',
+          'Head of Business / Information Officer: Dennis Butlion',
+          'Information Officer Email: Dennis Butlion',
+          'Contact Number: 021 701 9989',
+          'Website: https://blackswaninsurance.co.za',
         ],
       },
       {
-        heading: 'How to Request Access',
+        heading: 'Guide on How to Use PAIA',
         body: [
-          'A request must be made in writing on the prescribed form (Form C) and must contain sufficient particulars to identify the record requested and the requester.',
-          'The prescribed fee, if applicable, must be paid before a request is processed.',
+          "The Information Regulator has compiled a guide in each official language on how to exercise your rights under PAIA. This guide is available on the Information Regulator's official website (https://inforegulator.org.za/). Any queries regarding this guide should be directed straight to the Information Regulator.",
         ],
       },
       {
-        heading: 'Records Available',
+        heading: 'Records Available in Terms of Other Legislation',
         body: [
-          'Records that are automatically available without a PAIA request include marketing materials and this PAIA manual.',
-          'Other records may be requested subject to the grounds of refusal set out in PAIA.',
+          'Where applicable, [Insert Brokerage Name] holds records in accordance with the following South African legislation:',
+          "Financial Advisory and Intermediary Services Act, No. 37 of 2002 ('FAIS')",
+          'Financial Sector Regulation Act, No. 9 of 2017',
+          'Short-term Insurance Act, No. 53 of 1998 / Long-term Insurance Act, No. 52 of 1998',
+          "Financial Intelligence Centre Act, No. 38 of 2001 ('FICA')",
+          'Companies Act, No. 71 of 2008',
+          'Income Tax Act, No. 58 of 1962 and Value Added Tax Act, No. 89 of 1991',
+          'Basic Conditions of Employment Act, No. 75 of 1997 and Labour Relations Act, No. 66 of 1995',
+        ],
+      },
+      {
+        heading: 'Schedule of Records Held by the Brokerage',
+        body: [
+          'The following categories of records are held by Black Swan Insurance Brokers, though access to them is subject to the formal request process detailed below:',
+          'Operational & FAIS Records: FSP licensing documents, regulatory returns, and FAIS compliance officer reports.',
+          'Client Records: Client application forms, specific policy schedules, mandates, financial needs analyses, record of advice files, and premium payment histories.',
+          'Human Resources: Employment contracts, payroll files, training certificates, Key Individual (KI) and Representative registers, and internal HR policies.',
+          'Financial & Accounting Records: Audited financial statements, management accounts, tax returns, and VAT records.',
+          'Third-Party Agreements: Service level agreements (SLAs) with product suppliers (Insurers), binder agreements, and general vendor contracts.',
+        ],
+      },
+      {
+        heading: 'Procedure to Request Access to Records',
+        body: [
+          'To request access to a record held by Black Swan Insurance Brokers, the requester must complete Form 2 (Request for Access to Record) as prescribed by the Information Regulator. This form must be submitted to our Information Officer at the email address provided in Section 1.2.',
+          'The requester must provide sufficient detail on the form to enable the Information Officer to identify the record and the identity of the requester. The requester must also clearly indicate the rights they seek to protect or exercise and provide an explanation of why the requested record is required for that purpose.',
+          'Black Swan Insurance Brokers will process the request within 30 days of receipt and notify the requester of the decision, including any applicable statutory fees that must be paid before access is granted.',
         ],
       },
     ],
   },
   {
     slug: 'conflict-of-interest-policy',
-    title: 'Conflict of Interest Policy',
-    subtitle: 'How we identify, manage, and disclose conflicts of interest',
+    title: 'Conflict of Interest Management Policy',
+    subtitle: 'How we identify, manage, and disclose conflicts of interest under the FAIS General Code of Conduct',
     lastUpdated: 'August 2026',
     documentUrl: '/CONFLICT_OF_INTEREST_MANAGEMENT_POLICY.docx',
     documentLabel: 'Conflict of Interest Management Policy',
-    intro:
-      'This Conflict of Interest Policy describes how Black Swan Insurance Brokers identifies, manages, and discloses actual or potential conflicts of interest in accordance with the General Code of Conduct under the FAIS Act.',
     sections: [
       {
-        heading: 'Definition',
+        heading: 'Policy Purpose and Scope',
         body: [
-          'A conflict of interest arises when a financial services provider or representative has an actual or potential interest that may, in providing a financial service, influence the objective rendering of that service.',
+          'In terms of the General Code of Conduct for Authorised Financial Services Providers and Representatives under the FAIS Act, Black Swan Insurance Brokers is legally required to implement, maintain, and ensure an effective conflict of interest management policy. The primary objective is to guarantee that financial services are rendered to clients objectively, independently, and in a manner that explicitly prioritises the client\'s interests above our own.',
         ],
       },
       {
-        heading: 'Identification and Management',
+        heading: 'Definition of Conflict of Interest',
         body: [
-          'We identify conflicts of interest that may arise in the course of providing financial services and take reasonable steps to avoid, mitigate, or manage them.',
-          'Where a conflict cannot be avoided, we disclose it to clients in a timely and transparent manner.',
+          'A conflict of interest arises when an actual or potential situation exists where an FSP or a representative has an actual or financial interest that may influence the objectivity of their service to a client, thereby preventing them from rendering unbiased and fair financial advice.',
         ],
       },
       {
-        heading: 'Inducements',
+        heading: 'Financial Interest Limitations and Prohibitions',
         body: [
-          'We do not offer or accept any inducement that is not compliant with the FAIS Act and the General Code of Conduct.',
-          'Any immaterial benefit received or offered is recorded in our register of immaterial benefits and is available for inspection by the FSCA.',
+          'Black Swan Insurance Brokers and its representatives are strictly permitted to receive or offer only the following financial interests from or to third parties:',
+          'Statutory commission authorised under the Short-term or Long-term Insurance Acts.',
+          'Fees authorised under the Short-term or Long-term Insurance Acts, provided they are reasonably commensurate with the service rendered.',
+          'Fees for rendering a financial service for which commission or fees are not provided for, provided the client has explicitly agreed to it in writing and can stop it at any time.',
+          'An immaterial financial interest, defined as any financial interest with a third party that does not exceed an aggregate value of R1 000 in any single calendar year from that same provider.',
         ],
       },
       {
-        heading: 'Disclosure',
+        heading: 'Identification, Mitigation, and Disclosure Mechanisms',
         body: [
-          'Where a conflict of interest exists, we will disclose the nature of the conflict, the measures taken to manage it, and any potential impact on the client before providing the relevant service.',
+          'We proactively manage potential conflicts through the following control mechanisms:',
+          'Identification: Our internal compliance officer reviews all intermediary relationships and product provider agreements regularly to identify structural conflicts.',
+          'Mitigation: Representatives are strictly trained to avoid any relationship that compromises professional objectivity. If an unavoidable conflict is identified, it must immediately be logged in our Conflict-of-Interest Register.',
+          'Disclosure: We will provide complete written disclosures to the client regarding any potential conflict of interest associated with a specific recommended product, including exact commission structures or ownership relationships.',
         ],
       },
     ],
   },
   {
     slug: 'complaints-procedure',
-    title: 'Complaints Procedure',
-    subtitle: 'How to raise a complaint and how we resolve it',
+    title: 'Treating Customers Fairly (TCF) & Complaints Procedure',
+    subtitle: 'Our commitment to fair treatment and the formal process for lodging complaints',
     lastUpdated: 'August 2026',
     documentUrl: '/TREATING_CUSTOMERS_FAIRLY_&_COMPLAINTS_PROCEDURE.docx',
     documentLabel: 'Treating Customers Fairly & Complaints Procedure',
-    intro:
-      'Black Swan Insurance Brokers is committed to resolving complaints fairly, promptly, and transparently. This procedure sets out how to lodge a complaint and how we will handle it.',
     sections: [
       {
-        heading: 'How to Lodge a Complaint',
+        heading: 'Treating Customers Fairly (TCF) Commitment Statement',
         body: [
-          'Complaints may be submitted in writing to info@blackswaninsurance.co.za or by telephone to +27 21 701 9989.',
-          'Please provide your full name, contact details, the nature of the complaint, and any relevant dates or reference numbers.',
+          'At Black Swan Insurance Brokers, Treating Customers Fairly (TCF) is not just a regulatory obligation required by the Financial Sector Conduct Authority (FSCA); it sits at the absolute core of our business culture. We actively strive to achieve the six TCF outcomes across every stage of our advisory and brokerage interaction:',
+          'Outcome 1: Culture – Our clients can be completely confident that they are dealing with an FSP where fair treatment is central to our corporate culture.',
+          'Outcome 2: Target Market – Products and services marketed and sold are designed to meet the explicit needs of identified client groups and targeted accordingly.',
+          'Outcome 3: Clear Info – Clients are provided with clear, jargon-free information and kept appropriately informed before, during, and after the time of contracting.',
+          'Outcome 4: Suitable Advice – Where clients receive advice, the advice is suitable and takes full account of their specific financial circumstances and objectives.',
+          'Outcome 5: Performance – Clients are provided with products that perform as we have led them to expect, and the associated service is of an acceptable standard.',
+          'Outcome 6: Post-sale Barriers – Clients do not face unreasonable post-sale barriers to change products, switch providers, submit an insurance claim, or lodge a formal complaint.',
         ],
       },
       {
-        heading: 'Acknowledgement and Investigation',
+        heading: 'Formal Complaints Procedure',
         body: [
-          'We will acknowledge receipt of your complaint within three business days.',
-          'A representative will investigate the complaint and may contact you for further information.',
+          'If you feel that we have failed to satisfy a TCF outcome or if you are dissatisfied with our insurance brokerage services, you are fully entitled to lodge a formal complaint. Please follow the structured process outlined below:',
         ],
       },
       {
-        heading: 'Resolution',
+        heading: 'Step 1: Contact the Internal Complaints Function',
         body: [
-          'We aim to resolve complaints within 14 business days of receipt. Where this is not possible, we will inform you of the expected timeline and reasons for the delay.',
-          'You will receive a written response outlining the outcome of the investigation and any remedial action.',
+          'All complaints must be submitted in writing via email to our dedicated email address: complaints@blackswaninsurance.co.za. Please provide your full name, policy details, a clear description of the issue, and any supporting documentation.',
         ],
       },
       {
-        heading: 'Escalation',
+        heading: 'Step 2: Internal Review and Resolution Acknowledgement',
         body: [
-          'If you are not satisfied with our response, you may refer the matter to the FAIS Ombud.',
-          'FAIS Ombud: 012 762 1320 / info@faisombud.co.za / www.faisombud.co.za',
+          'We will acknowledge receipt of your written complaint within 3 working days and assign a reference number. The complaint will be routed to a senior manager or designated compliance officer who will thoroughly investigate the circumstances. We aim to provide a formal written resolution within 4 to 6 weeks of receiving your initial complaint.',
+        ],
+      },
+      {
+        heading: 'Step 3: Escalation to the Relevant Statutory Ombud',
+        body: [
+          'If we cannot resolve the dispute to your satisfaction, or if we fail to send you a final response within 6 weeks, you have the right to escalate the matter to the appropriate Ombud office within six months of receiving our final response.',
+          'For disputes specifically relating to financial advice or intermediary services provided by this brokerage:',
+          'Physical Address: Kasteel Park, Orange Building, 2nd Floor, 546 Jochemus Street, Erasmuskloof, Pretoria, 0181',
+          'Telephone: 012 762 5000 / 086 006 6322',
+          'Email: info@faisombud.co.za',
+          'Website: www.faisombud.co.za',
+          'For disputes relating to claims or product performance of long-term or short-term insurance policies, you may contact the National Financial Ombudsman Scheme (NFO):',
+          'Physical Address: 110 Oxford Road, Rosebank, Johannesburg, 2196',
+          'Telephone: 0860 800 900',
+          'Email: info@nfombud.co.za',
+          'Website: www.nfombud.co.za',
         ],
       },
     ],

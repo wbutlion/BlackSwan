@@ -70,20 +70,19 @@ export default function PolicyPage({ slug }: { slug: string }) {
 
       {/* Body */}
       <article className="max-w-4xl mx-auto px-6 py-14 md:py-20">
-        <p className="text-charcoal/80 text-lg leading-relaxed mb-12 pb-10 border-b border-slate/15">
-          {policy.intro}
-        </p>
+        {policy.intro && (
+          <p className="text-charcoal/80 text-lg leading-relaxed mb-12 pb-10 border-b border-slate/15">
+            {policy.intro}
+          </p>
+        )}
 
         <div className="space-y-12">
           {policy.sections.map((section, idx) => (
             <section key={idx}>
-              <h2 className="font-display text-2xl font-bold text-navy mb-4 flex items-baseline gap-3">
-                <span className="text-tangerine text-sm font-semibold tabular-nums">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
+              <h2 className="font-display text-2xl font-bold text-navy mb-4">
                 {section.heading}
               </h2>
-              <div className="space-y-4 pl-7">
+              <div className="space-y-4">
                 {section.body.map((para, i) => (
                   <p key={i} className="text-charcoal/75 leading-relaxed">
                     {para}
