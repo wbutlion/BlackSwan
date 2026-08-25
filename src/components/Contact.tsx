@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Mail, MapPin, Linkedin, Phone, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
+const NETLIFY_FORM_NAME = 'contact';
 
 export default function Contact() {
   const { ref, isVisible } = useScrollAnimation();
@@ -21,13 +21,17 @@ export default function Contact() {
     setError(null);
 
     try {
-      const res = await fetch(FUNCTION_URL, {
+      const body = new URLSearchParams();
+      body.append('form-name', NETLIFY_FORM_NAME);
+      body.append('name', form.name);
+      body.append('email', form.email);
+      body.append('phone', form.phone);
+      body.append('message', form.message);
+
+      const res = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
       });
 
       if (!res.ok) {
@@ -117,7 +121,18 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form 
+                onSubmit={handleSubmit} 
+                name={NETLIFY_FORM_NAME} 
+                method="POST" 
+                data-netlify="true" 
+                netlify-honeypot="bot-field" 
+                className="space-y-5"
+              >
+                <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
+                <p className="hidden">
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <FormField
                     label="Full Name"
