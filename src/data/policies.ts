@@ -12,6 +12,7 @@ export type Policy = {
   sections: PolicySection[];
   documentUrl?: string;
   documentLabel?: string;
+  footerLabel?: string;
 };
 
 export const policies: Policy[] = [
@@ -233,6 +234,7 @@ export const policies: Policy[] = [
     lastUpdated: 'August 2026',
     documentUrl: '/CONFLICT_OF_INTEREST_MANAGEMENT_POLICY.docx',
     documentLabel: 'Conflict of Interest Management Policy',
+    footerLabel: 'Conflict of Interest Policy',
     sections: [
       {
         heading: 'Policy Purpose and Scope',
@@ -326,6 +328,6 @@ export const policies: Policy[] = [
 ];
 
 export const policyFooterLinks = policies.map((p) => ({
-  label: p.title,
+  label: p.footerLabel ?? p.title,
   slug: p.slug,
 }));
