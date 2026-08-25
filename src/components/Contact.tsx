@@ -83,7 +83,7 @@ export default function Contact() {
                 <ContactDetail icon={Phone} label="Phone" value="+27 21 701 9989" href="tel:+27217019989" />
                 <ContactDetail icon={Mail} label="Email" value="info@blackswaninsurance.co.za" href="mailto:info@blackswaninsurance.co.za" />
                 <ContactDetail icon={Linkedin} label="LinkedIn" value="blackswaninsurance" href="https://www.linkedin.com/company/blackswaninsurance" />
-                <ContactDetail icon={MapPin} label="Location" value="Westlake Business Park, Cape Town, South Africa" />
+                <ContactDetail icon={MapPin} label="Location" value="Unit F1, Westlake Square, Westlake Drive, Westlake, 7945" />
               </div>
             </div>
 
