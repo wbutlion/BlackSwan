@@ -10,6 +10,8 @@ export type Policy = {
   lastUpdated: string;
   intro: string;
   sections: PolicySection[];
+  documentUrl?: string;
+  documentLabel?: string;
 };
 
 export const policies: Policy[] = [
@@ -18,6 +20,8 @@ export const policies: Policy[] = [
     title: 'Statutory Disclosure',
     subtitle: 'Regulatory information as required by the Financial Advisory and Intermediary Services Act (FAIS)',
     lastUpdated: 'August 2026',
+    documentUrl: '/Statutory_Disclosure_Notice.docx',
+    documentLabel: 'Statutory Disclosure Notice',
     intro:
       'Black Swan Insurance Brokers is a registered financial services provider. In accordance with the Financial Advisory and Intermediary Services Act (Act 37 of 2002), we are required to provide clients with the following statutory disclosure.',
     sections: [
@@ -51,6 +55,8 @@ export const policies: Policy[] = [
     title: 'Privacy Policy',
     subtitle: 'How we collect, use, and protect your personal information',
     lastUpdated: 'August 2026',
+    documentUrl: '/PRIVACY_POLICY.docx',
+    documentLabel: 'Privacy Policy',
     intro:
       'This Privacy Policy explains how Black Swan Insurance Brokers collects, processes, and safeguards your personal information in compliance with the Protection of Personal Information Act (POPIA) and the General Data Protection Regulation (GDPR) where applicable.',
     sections: [
@@ -97,6 +103,8 @@ export const policies: Policy[] = [
     title: 'PAIA Manual',
     subtitle: 'Promotion of Access to Information Act (Act 2 of 2000) — Section 51 Manual',
     lastUpdated: 'August 2026',
+    documentUrl: '/PAIA_MANUAL.docx',
+    documentLabel: 'PAIA Manual',
     intro:
       'This manual is published in accordance with Section 51 of the Promotion of Access to Information Act (PAIA), Act 2 of 2000, and sets out how to request access to records held by Black Swan Insurance Brokers.',
     sections: [

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { FileText, ArrowLeft, Calendar } from 'lucide-react';
-import { policies, type Policy } from '../data/policies';
+import { FileText, ArrowLeft, Calendar, Download } from 'lucide-react';
+import { policies } from '../data/policies';
 
 export default function PolicyPage({ slug }: { slug: string }) {
   useEffect(() => {
@@ -55,6 +55,16 @@ export default function PolicyPage({ slug }: { slug: string }) {
             <Calendar className="w-4 h-4" />
             <span>Last updated: {policy.lastUpdated}</span>
           </div>
+          {policy.documentUrl && (
+            <a
+              href={policy.documentUrl}
+              download
+              className="mt-8 inline-flex items-center gap-2.5 px-5 py-3 bg-tangerine hover:bg-tangerine-dark text-navy font-semibold rounded-xl text-sm transition-all duration-200 hover:shadow-lg hover:shadow-tangerine/30 hover:-translate-y-0.5"
+            >
+              <Download className="w-4 h-4" />
+              Download {policy.documentLabel ?? policy.title}
+            </a>
+          )}
         </div>
       </header>
 
