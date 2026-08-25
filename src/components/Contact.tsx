@@ -3,7 +3,6 @@ import { Mail, MapPin, Linkedin, Phone, Send, CheckCircle2, AlertCircle } from '
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const NETLIFY_FORM_NAME = 'contact';
-const FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
 
 export default function Contact() {
   const { ref, isVisible } = useScrollAnimation();
@@ -29,23 +28,13 @@ export default function Contact() {
       body.append('phone', form.phone);
       body.append('message', form.message);
 
-      const [netlifyRes, emailRes] = await Promise.all([
-        fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: body.toString(),
-        }),
-        fetch(FUNCTION_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          },
-          body: JSON.stringify(form),
-        }),
-      ]);
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
 
-      if (!netlifyRes.ok || !emailRes.ok) {
+      if (!res.ok) {
         throw new Error('Submission failed. Please try again.');
       }
 
