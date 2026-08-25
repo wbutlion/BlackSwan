@@ -8,7 +8,9 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PolicyPage from './components/PolicyPage';
+import BlogPostPage from './components/BlogPostPage';
 import { policies } from './data/policies';
+import { blogPosts } from './data/blogPosts';
 
 function useHashRoute() {
   const [hash, setHash] = useState(() => window.location.hash.replace(/^#\/?/, ''));
@@ -23,11 +25,21 @@ function useHashRoute() {
 export default function App() {
   const route = useHashRoute();
   const policySlug = policies.find((p) => p.slug === route)?.slug;
+  const blogSlug = blogPosts.find((p) => p.slug === route.replace(/^blog\//, ''))?.slug;
 
   if (policySlug) {
     return (
       <div className="font-sans text-charcoal antialiased">
         <PolicyPage slug={policySlug} />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (blogSlug) {
+    return (
+      <div className="font-sans text-charcoal antialiased">
+        <BlogPostPage slug={blogSlug} />
         <Footer />
       </div>
     );

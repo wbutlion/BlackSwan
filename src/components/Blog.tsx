@@ -1,38 +1,6 @@
 import { ArrowRight, Clock, Tag } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const posts = [
-  {
-    image:
-      'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=700',
-    category: 'Business Insurance',
-    readTime: '5 min read',
-    date: 'May 2025',
-    title: 'Why Your Business Needs More Than Just a Basic Policy',
-    excerpt:
-      'Many SME owners underestimate the gaps in their commercial cover until a claim reveals the truth. Here\'s how a full risk assessment can prevent costly surprises and ensure your business is properly protected at every stage of growth.',
-  },
-  {
-    image:
-      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=700',
-    category: 'Personal Finance',
-    readTime: '4 min read',
-    date: 'April 2025',
-    title: 'The Real Cost of Underinsurance — and How to Avoid It',
-    excerpt:
-      'Underinsurance is one of the most common and avoidable financial risks in South Africa. We break down what average clause means, how it applies to your home and vehicle, and the practical steps you can take today to make sure you\'re never left short.',
-  },
-  {
-    image:
-      'https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=700',
-    category: 'Claims Guidance',
-    readTime: '6 min read',
-    date: 'March 2025',
-    title: 'How to Navigate a Claim — and Why Your Broker Matters Most',
-    excerpt:
-      'The claims process is where the value of a good broker becomes crystal clear. From lodgement to settlement, we walk you through exactly what to expect, what documentation you\'ll need, and how having an independent advocate in your corner can make a significant difference to your outcome.',
-  },
-];
+import { blogPosts } from '../data/blogPosts';
 
 export default function Blog() {
   const { ref, isVisible } = useScrollAnimation();
@@ -62,8 +30,8 @@ export default function Blog() {
 
         {/* Blog grid */}
         <div className="grid md:grid-cols-3 gap-7">
-          {posts.map((post, i) => (
-            <BlogCard key={post.title} post={post} index={i} parentVisible={isVisible} />
+          {blogPosts.map((post, i) => (
+            <BlogCard key={post.slug} post={post} index={i} parentVisible={isVisible} />
           ))}
         </div>
       </div>
@@ -76,10 +44,15 @@ function BlogCard({
   index,
   parentVisible,
 }: {
-  post: (typeof posts)[0];
+  post: (typeof blogPosts)[0];
   index: number;
   parentVisible: boolean;
 }) {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.hash = `#/blog/${post.slug}`;
+  };
+
   return (
     <article
       style={{ transitionDelay: `${index * 150}ms` }}
@@ -88,7 +61,7 @@ function BlogCard({
       }`}
     >
       {/* Image */}
-      <div className="relative overflow-hidden h-52">
+      <a href={`#/blog/${post.slug}`} onClick={handleClick} className="relative overflow-hidden h-52 block">
         <img
           src={post.image}
           alt={post.title}
@@ -99,7 +72,7 @@ function BlogCard({
           <Tag className="w-3 h-3" />
           {post.category}
         </span>
-      </div>
+      </a>
 
       {/* Content */}
       <div className="p-7">
@@ -117,10 +90,14 @@ function BlogCard({
         </h3>
         <p className="text-charcoal/60 text-sm leading-relaxed line-clamp-3 mb-5">{post.excerpt}</p>
 
-        <button className="inline-flex items-center gap-1.5 text-tangerine font-semibold text-sm hover:gap-2.5 transition-all duration-200 group/link">
+        <a
+          href={`#/blog/${post.slug}`}
+          onClick={handleClick}
+          className="inline-flex items-center gap-1.5 text-tangerine font-semibold text-sm hover:gap-2.5 transition-all duration-200 group/link"
+        >
           Read More
           <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200" />
-        </button>
+        </a>
       </div>
     </article>
   );
