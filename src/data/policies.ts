@@ -276,6 +276,7 @@ export const policies: Policy[] = [
     lastUpdated: 'August 2026',
     documentUrl: '/TREATING_CUSTOMERS_FAIRLY_&_COMPLAINTS_PROCEDURE.docx',
     documentLabel: 'Treating Customers Fairly & Complaints Procedure',
+    footerLabel: 'Complaints Procedure',
     sections: [
       {
         heading: 'Treating Customers Fairly (TCF) Commitment Statement',
