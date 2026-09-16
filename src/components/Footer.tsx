@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { policyFooterLinks } from '../data/policies';
 
 const navLinks = [
@@ -11,11 +12,6 @@ const navLinks = [
 export default function Footer() {
   const scrollTo = (href: string) => {
     document.querySelector(href)?.scrollIntoView();
-  };
-
-  const goHome = () => {
-    window.location.hash = '';
-    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -57,12 +53,12 @@ export default function Footer() {
           <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
             {policyFooterLinks.map((link, idx) => (
               <li key={link.slug} className="flex items-center gap-x-3">
-                <a
-                  href={`#/${link.slug}`}
+                <Link
+                  to={`/policy/${link.slug}`}
                   className="text-white/35 hover:text-white/70 text-xs transition-colors duration-200"
                 >
                   {link.label}
-                </a>
+                </Link>
                 {idx < policyFooterLinks.length - 1 && (
                   <span className="text-white/20 text-xs select-none" aria-hidden="true">|</span>
                 )}

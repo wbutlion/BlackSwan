@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,42 +9,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PolicyPage from './components/PolicyPage';
 import BlogPostPage from './components/BlogPostPage';
-import { policies } from './data/policies';
-import { blogPosts } from './data/blogPosts';
 
-function useHashRoute() {
-  const [hash, setHash] = useState(() => window.location.hash.replace(/^#\/?/, ''));
-  useEffect(() => {
-    const onChange = () => setHash(window.location.hash.replace(/^#\/?/, ''));
-    window.addEventListener('hashchange', onChange);
-    return () => window.removeEventListener('hashchange', onChange);
-  }, []);
-  return hash;
-}
-
-export default function App() {
-  const route = useHashRoute();
-  const policySlug = policies.find((p) => p.slug === route)?.slug;
-  const blogSlug = blogPosts.find((p) => p.slug === route.replace(/^blog\//, ''))?.slug;
-
-  if (policySlug) {
-    return (
-      <div className="font-sans text-charcoal antialiased">
-        <PolicyPage slug={policySlug} />
-        <Footer />
-      </div>
-    );
-  }
-
-  if (blogSlug) {
-    return (
-      <div className="font-sans text-charcoal antialiased">
-        <BlogPostPage slug={blogSlug} />
-        <Footer />
-      </div>
-    );
-  }
-
+function HomePage() {
   return (
     <div className="font-sans text-charcoal antialiased">
       <Navbar />
@@ -58,5 +24,37 @@ export default function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+function PolicyRoute() {
+  const { slug } = useParams<{ slug: string }>();
+  return (
+    <div className="font-sans text-charcoal antialiased">
+      <PolicyPage slug={slug!} />
+      <Footer />
+    </div>
+  );
+}
+
+function BlogPostRoute() {
+  const { slug } = useParams<{ slug: string }>();
+  return (
+    <div className="font-sans text-charcoal antialiased">
+      <BlogPostPage slug={slug!} />
+      <Footer />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/policy/:slug" element={<PolicyRoute />} />
+        <Route path="/blog/:slug" element={<BlogPostRoute />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

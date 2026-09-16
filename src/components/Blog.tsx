@@ -1,4 +1,5 @@
 import { ArrowRight, Clock, Tag } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { blogPosts } from '../data/blogPosts';
 
@@ -48,11 +49,6 @@ function BlogCard({
   index: number;
   parentVisible: boolean;
 }) {
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.location.hash = `#/blog/${post.slug}`;
-  };
-
   return (
     <article
       style={{ transitionDelay: `${index * 150}ms` }}
@@ -61,7 +57,7 @@ function BlogCard({
       }`}
     >
       {/* Image */}
-      <a href={`#/blog/${post.slug}`} onClick={handleClick} className="relative overflow-hidden h-52 block">
+      <Link to={`/blog/${post.slug}`} className="relative overflow-hidden h-52 block">
         <img
           src={post.image}
           alt={post.title}
@@ -72,7 +68,7 @@ function BlogCard({
           <Tag className="w-3 h-3" />
           {post.category}
         </span>
-      </a>
+      </Link>
 
       {/* Content */}
       <div className="p-7">
@@ -90,14 +86,13 @@ function BlogCard({
         </h3>
         <p className="text-charcoal/60 text-sm leading-relaxed line-clamp-3 mb-5">{post.excerpt}</p>
 
-        <a
-          href={`#/blog/${post.slug}`}
-          onClick={handleClick}
+        <Link
+          to={`/blog/${post.slug}`}
           className="inline-flex items-center gap-1.5 text-tangerine font-semibold text-sm hover:gap-2.5 transition-all duration-200 group/link"
         >
           Read More
           <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-200" />
-        </a>
+        </Link>
       </div>
     </article>
   );

@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FileText, ArrowLeft, Calendar, Download } from 'lucide-react';
 import { policies } from '../data/policies';
 
 export default function PolicyPage({ slug }: { slug: string }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [slug]);
@@ -17,13 +20,12 @@ export default function PolicyPage({ slug }: { slug: string }) {
           <p className="text-charcoal/70 mb-6">
             The document you are looking for could not be located.
           </p>
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}
+          <button
+            onClick={() => navigate('/')}
             className="inline-flex items-center gap-2 text-tangerine font-semibold text-sm hover:underline"
           >
             <ArrowLeft className="w-4 h-4" /> Back to home
-          </a>
+          </button>
         </div>
       </div>
     );
@@ -34,13 +36,12 @@ export default function PolicyPage({ slug }: { slug: string }) {
       {/* Hero header */}
       <header className="bg-navy text-white">
         <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}
+          <button
+            onClick={() => navigate('/')}
             className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors duration-200"
           >
             <ArrowLeft className="w-4 h-4" /> Back to home
-          </a>
+          </button>
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-3.5 py-1.5 mb-5">
             <FileText className="w-3.5 h-3.5 text-tangerine" />
             <span className="text-xs font-semibold tracking-widest uppercase text-white/80">Legal Document</span>

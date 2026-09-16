@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const links = [
@@ -10,6 +11,7 @@ const links = [
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -38,8 +40,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0 }); }}
+          href="/"
+          onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo({ top: 0 }); }}
           className="flex items-center group"
         >
           <img
